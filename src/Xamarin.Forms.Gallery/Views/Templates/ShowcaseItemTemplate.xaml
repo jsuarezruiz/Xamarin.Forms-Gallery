@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Forms.Gallery.Views.Templates.ShowcaseItemTemplate">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="Frame">
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="WidthRequest" Value="240" />
+                <Setter Property="Margin" Value="12, 0, 0, 0" />
+            </Style>
+
+            <Style x:Key="ShowcaseTextContainerStyle" TargetType="Grid">
+                <Setter Property="WidthRequest" Value="220" />
+            </Style>
+
+            <Style x:Key="ShowcaseItemTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColor}" />
+                <Setter Property="Opacity" Value="0.75" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+
+            <Style x:Key="ShowcaseItemSubTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextSecondaryColor}" />
+                <Setter Property="FontSize" Value="9" />
+                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame
+                BackgroundColor="{Binding Color}">
+                <Grid>
+                    <Image
+                        Aspect="AspectFill"
+                        Source="{Binding Image}"/>
+                    <Grid
+                        Opacity="0.15"
+                        BackgroundColor="{StaticResource AccentColor}"/>
+                </Grid>
+            </Frame>
+            <StackLayout
+                Grid.Row="1"
+                Style="{StaticResource ShowcaseTextContainerStyle}">
+                <Label
+                    Text="{Binding Name}"
+                    Style="{StaticResource ShowcaseItemTitleStyle}"/>
+                <Label
+                    Text="{Binding Description}"
+                    Style="{StaticResource ShowcaseItemSubTitleStyle}"/>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Xamarin.Forms.Gallery.Converters"
+    x:Class="Xamarin.Forms.Gallery.Styles.DefaultTheme">
+
+    <!-- COLORS -->
+    <Color x:Key="BlackColor">#150303</Color>
+    <Color x:Key="WhiteColor">#F8F8FF</Color>
+    <Color x:Key="AccentColor">#4423A8</Color>
+
+    <!-- CONVERTERS -->
+    <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+
+    <!-- FONTS -->
+    <OnPlatform x:Key="FontAwesome" x:TypeArguments="x:String">
+        <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Free" />
+        <On Platform="iOS" Value="Font Awesome 5 Free" />
+        <On Platform="UWP" Value="/Assets/fa-solid-900.ttf#Font Awesome 5 Free" />
+    </OnPlatform>
+
+</ResourceDictionary>
