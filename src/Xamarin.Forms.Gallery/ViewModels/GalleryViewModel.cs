@@ -8,6 +8,7 @@ namespace Xamarin.Forms.Gallery.ViewModels
     {
         ObservableCollection<ShowcaseItem> _showcase;
         ObservableCollection<GalleryCategory> _gallery;
+        RepositoryInfo _repositoryInfo;
 
         public GalleryViewModel()
         {
@@ -34,6 +35,16 @@ namespace Xamarin.Forms.Gallery.ViewModels
             }
         }
 
+        public RepositoryInfo RepositoryInfo
+        {
+            get { return _repositoryInfo; }
+            set
+            {
+                _repositoryInfo = value;
+                OnPropertyChanged();
+            }
+        }
+
         void LoadData()
         {
             var showcaseItems = GalleryService.Instance.GetShowcaseItems();
@@ -41,6 +52,8 @@ namespace Xamarin.Forms.Gallery.ViewModels
 
             var galleryItems = GalleryService.Instance.GetGalleryItems();
             Gallery = new ObservableCollection<GalleryCategory>(galleryItems);
+
+            RepositoryInfo = GitHubService.Instance.GetRepositoryInfo();
         }
     }
 }

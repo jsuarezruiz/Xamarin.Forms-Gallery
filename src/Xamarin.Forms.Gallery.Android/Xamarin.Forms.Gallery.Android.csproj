@@ -55,6 +55,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.616-pre4" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="Microcharts.Forms">
+      <Version>0.8.5-pre</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

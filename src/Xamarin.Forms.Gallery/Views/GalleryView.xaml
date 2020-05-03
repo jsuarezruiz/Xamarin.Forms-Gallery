@@ -5,6 +5,7 @@
     xmlns:models="clr-namespace:Xamarin.Forms.Gallery.Models"
     xmlns:viewmodels="clr-namespace:Xamarin.Forms.Gallery.ViewModels"
     xmlns:templates="clr-namespace:Xamarin.Forms.Gallery.Views.Templates"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
     x:Class="Xamarin.Forms.Gallery.Views.GalleryView"
     BackgroundColor="{DynamicResource BackgroundColor}"
     Title="Xamarin.Forms Core Gallery">
@@ -72,6 +73,26 @@
                 <Setter Property="Margin" Value="0" />
             </Style>
 
+            <Style x:Key="ChartColorIndicatorStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="12" />
+                <Setter Property="WidthRequest" Value="12" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0, 4, 0" />
+            </Style>
+
+            <Style x:Key="ChartValueStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColor}" />
+            </Style>
+
+            <Style x:Key="ChartTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="9" />
+                <Setter Property="TextColor" Value="{DynamicResource TextPrimaryColor}" />
+                <Setter Property="Opacity" Value="0.75" />
+            </Style>
+
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
@@ -84,7 +105,8 @@
             Clicked="OnSettingsClicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView
+            BackgroundColor="{DynamicResource BackgroundColor}">
             <Grid
                 RowSpacing="0">
                 <Grid.RowDefinitions>
@@ -139,7 +161,7 @@
                             Grid.Column="1"
                             Placeholder="Search"
                             PlaceholderColor="{DynamicResource TextSecondaryColor}"
-                            TextColor="{DynamicResource TextPrimaryColor}"
+                            TextColor="{DynamicResource TextPrimaryColor}" BackgroundColor="Transparent"
                             FontSize="Medium"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
@@ -148,6 +170,118 @@
                 <!-- CONTENT -->
                 <StackLayout
                     Grid.Row="2">
+                    <!-- REPOSITORY INFO -->
+                    <Frame
+                        BackgroundColor="{DynamicResource ChartBackgroundColor}"
+                        Style="{StaticResource TestCasesContainerStyle}">
+                    <Grid
+                        ColumnSpacing="0"
+                        Padding="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid
+                            Grid.Column="0">
+                            <Grid 
+                                HeightRequest="120">
+                                <Grid.RowDefinitions>
+                                   <RowDefinition Height="Auto" />
+                                   <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid 
+                                    ColumnSpacing="0"
+                                    RowSpacing="0"
+                                    Margin="12, 16, 12, 12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <BoxView
+                                        Color="{DynamicResource StarsColor}"
+                                        Style="{StaticResource ChartColorIndicatorStyle}"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="4450"
+                                        FontSize="Large"
+                                        Style="{StaticResource ChartValueStyle}"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Text="Stars"
+                                        Style="{StaticResource ChartTextStyle}"/>
+                                </Grid>
+                                <StackLayout
+                                    Grid.Row="1"
+                                    Orientation="Horizontal">
+                                    <Grid
+                                        ColumnSpacing="0"
+                                        RowSpacing="0"
+                                        Margin="12, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <BoxView
+                                            Color="{DynamicResource IssuesColor}"
+                                            HeightRequest="8"
+                                            WidthRequest="8"
+                                            Style="{StaticResource ChartColorIndicatorStyle}"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="2253"
+                                            Style="{StaticResource ChartValueStyle}"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Grid.Row="1"
+                                            Text="Issues"
+                                            Style="{StaticResource ChartTextStyle}"/>
+                                    </Grid>
+                                    <Grid
+                                        ColumnSpacing="0"
+                                        RowSpacing="0"
+                                        Margin="12, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <BoxView
+                                            Color="{DynamicResource PullRequestsColor}"
+                                            HeightRequest="8"
+                                            WidthRequest="8"
+                                            Style="{StaticResource ChartColorIndicatorStyle}"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="135"
+                                            Style="{StaticResource ChartValueStyle}"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Grid.Row="1"
+                                            Text="Pull Requests"
+                                            Style="{StaticResource ChartTextStyle}"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                        <microcharts:ChartView
+                            x:Name="Chartview" 
+                            Grid.Column="1"
+                            HeightRequest="120"
+                            WidthRequest="120"/>
+                    </Grid>
+                    </Frame>
                     <!-- TEST CASES -->
                     <Frame
                         BackgroundColor="{StaticResource AccentColor}"

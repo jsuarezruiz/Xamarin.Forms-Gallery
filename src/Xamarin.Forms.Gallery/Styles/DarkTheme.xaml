@@ -10,5 +10,9 @@
     <Color x:Key="BackgroundSecondaryColor">#393e46</Color>
     <Color x:Key="TextPrimaryColor">#B0FFFFFF</Color>
     <Color x:Key="TextSecondaryColor">#B0FFFFFF</Color>
+    <Color x:Key="ChartBackgroundColor">#33373f</Color>
+    <Color x:Key="StarsColor">#2b4eb6</Color>
+    <Color x:Key="IssuesColor">#e16892</Color>
+    <Color x:Key="PullRequestsColor">#007c8b</Color>
 
 </ResourceDictionary>
