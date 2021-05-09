@@ -8,7 +8,7 @@ namespace Xamarin.Forms.Gallery
         {
             InitializeComponent();
 
-            MainPage = new CustomNavigationPage(new GalleryView());
+            MainPage = new CustomNavigationPage(new MainPage());
         }
 
         public static string AppTheme { get; set; }

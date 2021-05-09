@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Forms.Gallery.Views.ActivityIndicatorPage"
+    Title="ActivityIndicator">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="12">
+            <Label
+                Text="Default"
+                Style="{StaticResource Headline}"/>
+            <Label
+                Text="IsRunning"
+                Style="{StaticResource Subhead}"/>
+            <ActivityIndicator
+                IsRunning="True" />
+            <Label
+                Text="Styled"
+                Style="{StaticResource Headline}"/>
+            <Label
+                Text="Color"
+                Style="{StaticResource Subhead}"/>
+            <ActivityIndicator
+                IsRunning="True"
+                Color="{StaticResource AccentColor}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

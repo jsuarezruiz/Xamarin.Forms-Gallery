@@ -1,8 +1,8 @@
 ﻿namespace Xamarin.Forms.Gallery.Views
 {
-    public partial class SettingsView : ContentPage
+    public partial class ActivityIndicatorPage : ContentPage
     {
-        public SettingsView()
+        public ActivityIndicatorPage()
         {
             InitializeComponent();
         }

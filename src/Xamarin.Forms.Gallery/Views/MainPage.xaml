@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<views:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Forms.Gallery.Views.MainPage"
+    xmlns:views="clr-namespace:Xamarin.Forms.Gallery.Views.Base"
+    xmlns:viewmodels="clr-namespace:Xamarin.Forms.Gallery.ViewModels"
+    x:Name="HomePage"
+    Title="Gallery">
+    <views:BasePage.BindingContext>
+        <viewmodels:MainViewModel />
+    </views:BasePage.BindingContext>
+      <views:BasePage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Title" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 24, 0, 0" />
+            </Style>
+
+            <Style x:Key="SubTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="24, 12" />
+            </Style>
+
+            <Color x:Key="SectionItemBorderColor">#C8C8C8</Color>
+
+            <Style x:Key="SectionItemContainerStyle" TargetType="Frame">
+                <Setter Property="BorderColor" Value="{StaticResource SectionItemBorderColor}" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HeightRequest" Value="120" />
+                <Setter Property="Padding" Value="12" />
+                <Setter Property="Margin" Value="0, 0, 12, 12" />
+                <Setter Property="FlexLayout.Basis" Value="50%"/>
+                <Setter Property="FlexLayout.Grow" Value="0"/>
+            </Style>
+
+            <Style x:Key="SectionItemTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+            </Style>
+
+            <Style x:Key="SectionItemDescriptionStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+
+        </ResourceDictionary>
+      </views:BasePage.Resources>
+    <ScrollView>
+        <Grid
+            RowDefinitions="150, *"
+            RowSpacing="0">
+            <!-- HEADER -->
+            <Image
+                Grid.Row="0"
+                Aspect="AspectFill"
+                Source="header_background"/>
+            <Grid
+                RowSpacing="0"
+                Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Text=".NET MAUI"
+                    Style="{StaticResource TitleStyle}"/>
+                <Label
+                    Grid.Row="1"
+                    Text="An open-source framework for building iOS, Android, macOS and Windows apps"
+                    Style="{StaticResource SubTitleStyle}"/>
+            </Grid>
+            <!-- CONTENT -->
+            <Grid
+                Grid.Row="1"
+                Margin="12">
+                <FlexLayout 
+                    BindableLayout.ItemsSource="{Binding Items}"
+                    Direction="Row" Wrap="Wrap"
+                    JustifyContent="Start" AlignItems="Start" AlignContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                               Style="{StaticResource SectionItemContainerStyle}">
+                               <Grid
+                                   RowSpacing="0"
+                                   RowDefinitions="Auto, *">
+                                   <Grid.GestureRecognizers>
+                                       <TapGestureRecognizer
+                                           Command="{Binding NavigateCommand, Source={x:Reference HomePage}}"
+                                           CommandParameter="{Binding .}" />
+                                   </Grid.GestureRecognizers>
+                                   <Label
+                                       Text="{Binding Title}"
+                                       Style="{StaticResource SectionItemTitleStyle}"/>
+                                   <Label
+                                       Grid.Row="1"
+                                       Text="{Binding Description}"
+                                       Style="{StaticResource SectionItemDescriptionStyle}"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</views:BasePage>

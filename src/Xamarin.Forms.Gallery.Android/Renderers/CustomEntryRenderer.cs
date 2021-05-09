@@ -1,9 +1,10 @@
 ﻿using Android.Content;
 using Xamarin.Forms;
 using Xamarin.Forms.Gallery.Droid.Renderers;
+using Xamarin.Forms.Gallery.Controls;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(BordelessEntry), typeof(CustomEntryRenderer))]
 namespace Xamarin.Forms.Gallery.Droid.Renderers
 {
     public class CustomEntryRenderer : EntryRenderer

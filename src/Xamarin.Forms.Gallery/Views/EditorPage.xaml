@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Forms.Gallery.Views.EditorPage"
+    Title="Editor">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="12">
+                <Label
+                    Text="Default"
+                    Style="{StaticResource Headline}"/>
+                <Editor />
+                <Label
+                    Text="Placeholder"
+                    Style="{StaticResource Headline}"/>
+                <Editor
+                    Placeholder="Placeholder"/>
+                <Label
+                    Text="Disabled"
+                    Style="{StaticResource Headline}"/>
+                <Editor
+                    Text="I am disabled"
+                    IsEnabled="False"/>
+                <Label
+                    Text="Read-only"
+                    Style="{StaticResource Headline}"/>
+                <Editor
+                    Text="I am read only"
+                    IsReadOnly="True"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

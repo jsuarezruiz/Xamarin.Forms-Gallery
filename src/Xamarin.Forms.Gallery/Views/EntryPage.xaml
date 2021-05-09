@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Xamarin.Forms.Gallery.Views.EntryPage"
+    Title="Entry">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="12">
+                <Label
+                    Text="Basic"
+                    Style="{StaticResource Headline}" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry />
+                    <Entry IsEnabled="False"/>
+                </StackLayout>
+                <Label
+                    Text="With Placeholder"
+                    Style="{StaticResource Headline}" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Placeholder"/>
+                    <Entry Placeholder="Placeholder color" PlaceholderColor="{StaticResource AccentColor}"/>
+                    <Entry Placeholder="Placeholder" IsEnabled="False"/>
+                </StackLayout>
+                <Label
+                    Text="Password"
+                    Style="{StaticResource Headline}" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry IsPassword="True" />
+                    <Entry IsPassword="True" IsEnabled="False"/>
+                </StackLayout>
+                <Label
+                    Text="With Text"
+                    Style="{StaticResource Headline}" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry Text="Text"/>
+                    <Entry Text="Text Color" TextColor="{StaticResource AccentColor}"/>
+                    <Entry Text="Text" IsEnabled="False"/>
+                </StackLayout>
+                <Label
+                    Text="Read-only"
+                    Style="{StaticResource Headline}" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry Text="I am read only" IsReadOnly="True"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

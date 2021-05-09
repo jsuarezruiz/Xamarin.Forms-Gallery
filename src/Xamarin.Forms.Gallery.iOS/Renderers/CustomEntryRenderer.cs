@@ -1,9 +1,10 @@
 ﻿using UIKit;
 using Xamarin.Forms;
+using Xamarin.Forms.Gallery.Controls;
 using Xamarin.Forms.Gallery.iOS.Renderers;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(BordelessEntry), typeof(CustomEntryRenderer))]
 namespace Xamarin.Forms.Gallery.iOS.Renderers
 {
     public class CustomEntryRenderer : EntryRenderer
@@ -12,7 +13,8 @@ namespace Xamarin.Forms.Gallery.iOS.Renderers
         {
             base.OnElementChanged(e);
 
-            Control.BorderStyle = UITextBorderStyle.None;
+            if (Control != null)
+                Control.BorderStyle = UITextBorderStyle.None;
         }
     }
 }
