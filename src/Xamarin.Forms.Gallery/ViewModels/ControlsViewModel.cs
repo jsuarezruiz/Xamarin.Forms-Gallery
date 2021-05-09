@@ -10,13 +10,13 @@ namespace Xamarin.Forms.Gallery.ViewModels
 		protected override IEnumerable<SectionModel> CreateItems() => new[]
 		{
 			new SectionModel(typeof(ActivityIndicatorPage), "ActivityIndicator",
-				"The AvatarView represents a user's name by using the initials and a generated background color"),
+				"Displays an animation to show that the application is engaged in a lengthy activity."),
 
 			new SectionModel(typeof(EntryPage), "Entry",
-				"The AvatarView represents a user's name by using the initials and a generated background color"),
+				"The Entry control is used for single-line text input."),
 
 			new SectionModel(typeof(EditorPage), "Editor",
-				"The AvatarView represents a user's name by using the initials and a generated background color"),
+				"The Editor control is used to accept multi-line input."),
 		};
 	}
 }

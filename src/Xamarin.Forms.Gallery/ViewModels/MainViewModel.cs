@@ -10,19 +10,19 @@ namespace Xamarin.Forms.Gallery.ViewModels
 		protected override IEnumerable<SectionModel> CreateItems() => new[]
 		{
 			new SectionModel(typeof(LayoutsPage), "Core",
-				"Behaviors lets you add functionality to user interface controls without having to subclass them. Behaviors are written in code and added to controls in XAML or code"),
+				"Application development fundamentals like Shell or Navigation."),
 
 			new SectionModel(typeof(LayoutsPage), "Layouts",
-				"Behaviors lets you add functionality to user interface controls without having to subclass them. Behaviors are written in code and added to controls in XAML or code"),
+				"Layouts are used to compose user-interface controls into visual structures."),
 
 			new SectionModel(typeof(ControlsPage), "Controls",
-				"Converters let you convert bindings of a certain type to a different value, based on custom logic"),
+				"Controls are the building blocks of cross-platform mobile user interfaces."),
 
 			new SectionModel(typeof(OthersPage), "User Interface Concepts",
-				"Effects are used to add visual customization on a control by control bases"),
+				"User interface concepts like Animations, Colors, Fonts and more."),
 
 			new SectionModel(typeof(OthersPage), "Others Concepts",
-				"Effects are used to add visual customization on a control by control bases")
+				"Other options like Graphics.")
 		};
 	}
 }
